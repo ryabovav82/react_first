@@ -1,39 +1,34 @@
 import React from "react";
 import s from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
+import DialogItem from "./DialogItem/DialogItem";
+import Message from "./Message/Message";
 
-const DialogItem = () => {
-    return (
-        <div className={s.dialog + ' ' + s.active}>
-            <NavLink to="/dialogs/1">Dimych</NavLink>
-        </div>
-    )
-}
-const Dialogs = (props) => {
+const Dialogs = () => {
+    let dialogsData = [
+        {id: 1, name: "Dimych"},
+        {id: 2, name: "Andrey"},
+        {id: 3, name: "Sveta"},
+        {id: 4, name: "Victor"},
+        {id: 5, name: "Valera"}
+    ];
+
+    let messagesData = [
+        {id: 1, message: "Hi"},
+        {id: 2, message: "How are you?"},
+        {id: 3, message: "Yo"},
+        {id: 4, message: "Fuck"},
+        {id: 5, message: "Habit"}
+    ];
+    let dialogsElements = dialogsData.map(item => (<DialogItem name={item.name} id={item.id}/>));
+    let mesagesElements = messagesData.map(item => (<Message message={item.message}/>));
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <div className={s.dialog + ' ' + s.active}>
-                    <NavLink to="/dialogs/1">Dimych</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/2">Andrey</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/3">Sveta</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/4">Victor</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/5">Valera</NavLink>
-                </div>
-
+                {dialogsElements}
             </div>
             <div className={s.messages}>
-                <div className={s.message}>Hi</div>
-                <div className={s.message}>How are you?</div>
-                <div className={s.message}>Yo</div>
+                {mesagesElements}
             </div>
         </div>
     );

@@ -1,9 +1,14 @@
-.content_img {
-    height: 400px;
-    /* border: 1px solid #000; */
-}
+
 
 .content {
     grid-area: c;
     border: 1px solid #000;
+  }
+
+  .postsBlock {
+    padding: 10px;
+  }
+
+  .posts {
+    margin-top: 10px;
   }
